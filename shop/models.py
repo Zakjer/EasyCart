@@ -1,4 +1,6 @@
 from uuid import uuid4
+from .validators import validate_image_size
+
 from django.db import models
 from django.core.validators import MinValueValidator
 
@@ -21,6 +23,11 @@ class Product(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0)])
+
+
+class ProductImage(models.Model):
+    image = models.ImageField(null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, validators=[validate_image_size])
 
 
 class Order(models.Model):
