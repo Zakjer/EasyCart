@@ -3,6 +3,10 @@ from .validators import validate_image_size
 
 from django.db import models
 from django.core.validators import MinValueValidator
+from django.contrib.auth.models import AbstractUser
+
+class User(AbstractUser):
+  email = models.EmailField(unique=True)
 
 
 class Customer(models.Model):
@@ -10,7 +14,7 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=255, null=True)
     phone = models.CharField(max_length=255, null=True)
     birth_date = models.DateField(null=True)
-    email = models.EmailField(max_length=255, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
@@ -38,21 +42,10 @@ class Order(models.Model):
 class OrderItem(models.Model):
     """Model for specific item in order"""
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
-    order = models.ForeignKey(Order, on_delete=models.PROTECT)  
+    order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name='items')  
     quantity = models.PositiveSmallIntegerField()
     price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0)])
 
-
-class Cart(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid4)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-
-class CartItem(models.Model):
-    """Model for specific item in cart"""
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT)
-    quantity = models.PositiveSmallIntegerField()
 
 
 
