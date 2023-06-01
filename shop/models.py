@@ -42,6 +42,9 @@ class Order(models.Model):
     placed_at = models.DateTimeField(auto_now_add=True)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
+    def __str__(self):
+        return f'Order {self.id}'
+
 
 class OrderItem(models.Model):
     """Model for specific item in order"""

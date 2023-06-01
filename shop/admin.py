@@ -43,6 +43,16 @@ class UserAdmin(BaseUserAdmin):
         ),
     )
 
+
+class OrderItemInLine(admin.TabularInline):
+    model = models.OrderItem
+    readonly_fields = ['id']
+
+
+@admin.register(models.Order)
+class OrderAdmin(admin.ModelAdmin):
+    inlines = [OrderItemInLine]
+
 admin.site.register(models.ProductImage)
 
 
