@@ -29,9 +29,11 @@ class CustomerViewSet(ModelViewSet):
 
 
 class OrderViewSet(ModelViewSet):
+    http_method_names = ['get', 'post', 'patch', 'head', 'options']
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [IsAdminUser]
+
 
         
 
