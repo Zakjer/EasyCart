@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.db import transaction
 
-from .models import Customer, Order, Product, ProductImage, OrderItem
+from .models import Customer, Order, Product, ProductImage, OrderItem, Review
 
 class ProductImageSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
@@ -56,6 +56,12 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
         fields = ['id', 'placed_at', 'customer', 'items', 'total_price']
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['id', 'stars', 'text', 'date']
 
     
 
