@@ -51,7 +51,7 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
     order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name='items')  
     quantity = models.PositiveSmallIntegerField()
-    price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(0)])
+    price = models.DecimalField(max_digits=6, decimal_places=2)
 
 
 class Review(models.Model):

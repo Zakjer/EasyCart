@@ -46,12 +46,22 @@ class UserAdmin(BaseUserAdmin):
 
 class OrderItemInLine(admin.TabularInline):
     model = models.OrderItem
-    readonly_fields = ['id']
+    readonly_fields = ['product_name', 'quantity', 'price']
+    autocomplete_fields = ['product']
+    exclude = ['product']
 
+    def product_name(self, orderitem):
+        return orderitem.product.title
+    
 
 @admin.register(models.Order)
 class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderItemInLine]
+
+    def get_total_price(self, obj):
+        total = sum(item.price for item in obj.orderitem_set.all())
+        return total
+    
 
 admin.site.register(models.ProductImage)
 
