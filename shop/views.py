@@ -8,7 +8,7 @@ from .models import Customer, Order, Product, ProductImage, Review, OrderItem
 from .permissions import IsAdminOrReadOnly
 
 class ProductViewSet(ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.prefetch_related('images').all()
     serializer_class = ProductSerializer
     permission_classes=[IsAdminOrReadOnly]
 

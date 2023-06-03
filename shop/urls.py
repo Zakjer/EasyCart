@@ -1,4 +1,6 @@
 from rest_framework_nested import routers
+from django.conf import settings
+from django.conf.urls.static import static
 
 from .views import CustomerViewSet, OrderViewSet, ProductImageViewSet, ProductViewSet, ReviewViewSet
 
@@ -12,6 +14,8 @@ products_router.register('images', ProductImageViewSet, basename='product-images
 products_router.register('reviews', ReviewViewSet, basename='product-reviews')
 
 urlpatterns = router.urls + products_router.urls
+
+
 
 
 

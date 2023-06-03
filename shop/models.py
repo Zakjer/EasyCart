@@ -34,8 +34,11 @@ class Product(models.Model):
 
 
 class ProductImage(models.Model):
-    image = models.ImageField(null=True)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, validators=[validate_image_size])
+    image = models.ImageField(null=True, upload_to='shop/images', validators=[validate_image_size])
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
+
+    def __str__(self):
+        return str(self.image)
 
 
 class Order(models.Model):
