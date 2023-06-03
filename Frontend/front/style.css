@@ -22,6 +22,7 @@ body {
     align-items: center;
     background-color: rgba(250, 239, 235, 0.6);
     font-size: 18px;
+    
 }
 
 .logo {
@@ -54,3 +55,104 @@ body {
     cursor: pointer;
 }
 
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    /* width: 1200px; */
+}
+
+.first-l{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 15px 0px 0px 0px;
+    justify-content: center;
+    /* background-color: rgba(250, 239, 235, 0.8); */
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.book-info{
+    margin:90px;
+    padding:60px;
+    font-size: 35px;
+    background-color: rgba(255, 255,255, 0.65);
+    display: flex;
+    flex-direction: column;
+    color: black;
+    border-radius: 20px;
+}
+
+.book-cover{
+    margin:0px 150px;
+}
+
+.buttons{
+    margin: 40px 0px 0px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn2{
+    border: 0px;
+    border-radius: 12px;
+    font-family: dosis;
+    font-size: 22px;
+    padding: 6px 12px;
+    margin:5px;
+}
+.kup-teraz{
+    background-color: #647386;
+    color: white;
+}
+.kup-teraz:hover{
+    background-color: #414a55;
+    color: white;
+    transition: 250ms;
+}
+
+.dowiedz{
+    background-color: #f8c304;
+    /* color: white; */
+}
+
+.dowiedz:hover{
+    background-color: #f6c000;
+    color: white;
+    transition: 250ms;
+}
+
+.opis{
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    background-color: white;
+}
+
+.sales-section{
+    font-size: 25px;
+    margin:100px;
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.amount{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 10px 0px;
+    font-size: 20px;
+}
+
+.amount-input{
+    padding: 5px;
+    height: 22px;
+    width: 20px;
+    margin: 0px 10px;
+}
