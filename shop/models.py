@@ -59,6 +59,9 @@ class Review(models.Model):
     text = models.TextField()
     date = models.DateField(auto_now_add=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Review {self.id}'
     
 
 

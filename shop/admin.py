@@ -63,6 +63,12 @@ class OrderAdmin(admin.ModelAdmin):
         return total
     
 
+@admin.register(models.Review)
+class ReviewAdmin(admin.ModelAdmin):
+    readonly_fields = ['stars', 'text', 'date']
+    exclude = ['product']
+    
+
 admin.site.register(models.ProductImage)
 
 
