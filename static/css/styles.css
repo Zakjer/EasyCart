@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    background-color: #fff8e8;
+    background-color: white;
 }
 
 nav {
@@ -12,7 +12,6 @@ nav {
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     padding: 1rem;
 }
 
@@ -30,11 +29,18 @@ body::-webkit-scrollbar {
     text-decoration: none;
 }
 
-#name {
-    font-size: 2.5rem;
-    letter-spacing: normal;
+.navbar .main-nav #name {
+    font-weight: 5rem;
+}
+
+.main-nav {
     margin-right: auto;
 }
+
+#name {
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
 
 nav a:hover {
     color: darkgray;
@@ -45,7 +51,7 @@ nav #name:hover {
     color: darkgray;
 }
 
-.background__photo {
+.background-photo {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -53,8 +59,8 @@ nav #name:hover {
     width: 100vw;
 }
 
-#section__name {
-    margin-top: 6rem;
+#section-name {
+    margin-top: 3rem;
     margin-left: 13rem;
     margin-bottom: 0.1rem;
     font-size: 1.8rem;
@@ -108,6 +114,90 @@ nav #name:hover {
     left: 30%;
 }
 
+.recommendations {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.product {
+    margin: 2rem;
+    background-color: rgb(249, 246, 238);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.product p {
+    text-align: left;
+    padding: 1rem;
+    font-size: 1.1em;
+    padding-top: 0;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.review {
+    text-align: left;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.add {
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: background 0.8s;
+    border: 1.5px solid black;
+}
+
+.add:hover {
+    background: rgb(54, 69, 79);
+    color: white;
+    border: none;
+}
+
+.recommendations img {
+    transition: transform 0.5s;
+}
+
+.recommendations img:hover {
+    transform: scale(1.2);
+}
+
+.promotions {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.promotion-details {
+    width: 16vw;
+    height: 43vh;
+    background-color: gold;
+    margin: 3rem;
+    margin-top: 1.5rem;
+    border-radius: 30px;
+    position: relative;
+}
+
+.promotion-details img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-end-start-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 100%;
+}
+
+.promotion1 {
+    background-color: rgb(175, 225, 175);
+}
 
 @media screen and (max-width: 600px) {
     .navbar a {

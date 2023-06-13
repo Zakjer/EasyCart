@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../../static/normalize.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script
+      src="https://kit.fontawesome.com/3b0b25f0f2.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;900&display=swap"
       rel="stylesheet"
@@ -14,16 +19,20 @@
   </head>
   <body>
     <nav class="navbar">
-      <a id="name" href="">EasyCart</a>
-      <a href="">Home</a><a href="">Categories</a><a href="">About</a
-      ><a href="">Contact</a>
+      <div class="main-nav">
+        <a id="name" href="">EasyCart</a>
+        <a href="">Home</a><a href="">Categories</a><a href="">About</a
+        ><a href="">Contact</a>
+      </div>
+      <a href=""><i class="fa-solid fa-user"></i>&ensp;Account</a
+      ><a href=""><i class="fa-solid fa-cart-shopping"></i>&ensp;Cart</a>
     </nav>
     <img
-      class="background__photo"
+      class="background-photo"
       src="../../static/images/background.jpg"
       alt="Background photo of the website"
     />
-    <h2 id="section__name">Check out our top categories</h2>
+    <h2 id="section-name">Check Out Our Top Categories</h2>
     <section class="categories">
       <div class="electronics">
         <img
@@ -55,6 +64,99 @@
         <img src="../../static/images/Furniture.png" alt="Photo of furniture" />
         <h3 class="text position3">Furniture</h3>
       </div>
+    </section>
+    <h2 id="section-name">Products Recommended For You</h2>
+    <section class="recommendations">
+      <div class="product">
+        <img src="../../static/images/example1.png" alt="Photo of watch" />
+        <p>Samsung watch ultra</p>
+        <p class="price">129.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="../../static/images/example2.png" alt="Photo of headphones" />
+        <p>Razer kraken pro</p>
+        <p class="price">159.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="../../static/images/example3.png" alt="Photo of bag" />
+        <p>Purple bag</p>
+        <p class="price">29.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="../../static/images/example4.png" alt="Photo of bottle" />
+        <p>Water bottle</p>
+        <p class="price">9.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="../../static/images/example5.png" alt="Photo of suitcase" />
+        <p>Yellow suitcase</p>
+        <p class="price">39.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <h2 id="section-name">Promotions Up To 60%</h2>
+    <section class="promotions">
+      <div class="promotion-details promotion1">
+        <p>Save up to</p>
+        <img src="../../static/images/Books3.png" alt="">
+      </div>
+      <div class="promotion-details"></div>
+      <div class="promotion-details"></div>
+      <div class="promotion-details"></div>
     </section>
   </body>
 </html>
