@@ -179,11 +179,11 @@ nav #name:hover {
 .promotion-details {
     width: 16vw;
     height: 43vh;
-    background-color: gold;
     margin: 3rem;
     margin-top: 1.5rem;
     border-radius: 30px;
     position: relative;
+    overflow: hidden;
 }
 
 .promotion-details img {
@@ -193,10 +193,66 @@ nav #name:hover {
     border-end-start-radius: 30px;
     border-bottom-right-radius: 30px;
     width: 100%;
+    transition: transform 0.5s;
+}
+
+.promotion-details:hover img {
+    transform: scale(1.15);
 }
 
 .promotion1 {
     background-color: rgb(175, 225, 175);
+}
+
+.promotion2 {
+    background-color: rgb(234, 221, 202);
+}
+
+.promotion3 {
+    background-color: rgb(229, 170, 151);
+}
+
+.promotion4 {
+    background-color: rgb(236, 218, 170);
+}
+
+.promotion-details p {
+    font-size: 1.5rem;
+    position: absolute;
+    left: 5%;
+    padding: 1rem;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    color: rgb(56, 60, 63);
+}
+
+.promotion-details .price-tag {
+    left: 5%;
+    top: 8%;
+    font-size: 2.8rem;
+}
+
+.promotion-details .price-tag1 {
+    color: rgb(38, 43, 7);
+}
+
+.promotion-details .price-tag2 {
+    color: rgb(123, 63, 0);
+}
+
+.promotion-details .price-tag3 {
+    color: rgb(136, 8, 8);
+}
+
+.promotion-details .price-tag4 {
+    color: rgb(209, 163, 24);
+}
+
+.promotion-details .promotion-text {
+    top: 25%;
+    font-size: 1.1rem;
+    font-family:"Open Sans", Arial, Helvetica, sans-serif;
+    text-align: left;
+    color: black;
 }
 
 @media screen and (max-width: 600px) {
