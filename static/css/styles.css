@@ -56,7 +56,7 @@ nav #name:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3rem;
-    width: 100vw;
+    width: 100%;
 }
 
 #section-name {
@@ -170,6 +170,69 @@ nav #name:hover {
     transform: scale(1.2);
 }
 
+.cashback {
+    position: relative;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.cashback img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+}
+
+.cashback .background-text {
+    width: 23rem;
+    height: 23rem;
+    background-color: rgb(193, 154, 107);
+    position: absolute;
+    top: 12%;
+    right: 15%;
+    display: flex;
+}
+
+.background-text h3 {
+    width: 23rem;
+    color: white;
+    display: flex;
+    padding: 2rem;
+    font-weight: bold;
+    font-size: 2.8rem;
+    position: relative;
+}
+
+.background-text p {
+    display: inline;
+    position: inherit;
+    padding: 2rem;
+    bottom: 18%;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.cashback button {
+    width: 9rem;
+    height: 4rem;
+    background-color: rgb(193, 154, 107);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid white;
+    border-radius: 30px;
+    position: inherit;
+    bottom: 5%;
+    left: 30%;
+    justify-content: center;
+    transition: background 0.5s, border 0.2s;
+}
+
+.cashback button:hover {
+    background: black;
+    border: 0;
+}
+
+
 .promotions {
     display: flex;
     justify-content: center;
@@ -253,6 +316,24 @@ nav #name:hover {
     font-family:"Open Sans", Arial, Helvetica, sans-serif;
     text-align: left;
     color: black;
+}
+
+footer {
+    width: 100%;
+    height: 30vh;
+    margin-top: 4rem;
+    border-top: 1px solid black;
+}
+
+footer h3 {
+    padding: 3rem;
+    padding-bottom: 0;
+    margin: 1rem;
+}
+
+footer p {
+    padding: 3rem;
+    padding-top: 0;
 }
 
 @media screen and (max-width: 600px) {
