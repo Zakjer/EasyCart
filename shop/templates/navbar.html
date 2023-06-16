@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="../../static/normalize.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <script
-      src="https://kit.fontawesome.com/3b0b25f0f2.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="../../static/images/Cart.jpg" />
+    <title>EasyCart</title>
+    <script
+      src="https://kit.fontawesome.com/3b0b25f0f2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <nav class="navbar">
@@ -33,8 +35,8 @@
       src="../../static/images/background.jpg"
       alt="Background photo of the website"
     />
-    <h2 id="section-name">Check Out Our Top Categories</h2>
-    <section class="categories">
+    <h2 class="section-name">Check Out Our Top Categories</h2>
+    <section class="categories" data-aos="zoom-in">
       <div class="electronics">
         <img
           src="../../static/images/Electronic.png"
@@ -50,7 +52,7 @@
         <img src="../../static/images/Books.png" alt="Photo of books" />
         <h3 class="text position2">Books</h3>
       </div>
-      <div class="shoes">
+      <div class="sneakers">
         <img src="../../static/images/Shoes.png" alt="Photo of shoes" />
         <h3 class="text position2">Sneakers</h3>
       </div>
@@ -66,9 +68,9 @@
         <h3 class="text position3">Furniture</h3>
       </div>
     </section>
-    <h2 id="section-name">Products Recommended For You</h2>
-    <section class="recommendations">
-      <div class="product">
+    <h2 class="section-name">Products Recommended For You</h2>
+    <section class="recommendations" data-aos="fade-up">
+      <div class="product" id="product1">
         <img src="../../static/images/example1.png" alt="Photo of watch" />
         <p>Samsung watch ultra</p>
         <p class="price">129.99$</p>
@@ -84,7 +86,7 @@
           </button>
         </div>
       </div>
-      <div class="product">
+      <div class="product" id="product2">
         <img src="../../static/images/example2.png" alt="Photo of headphones" />
         <p>Razer kraken pro</p>
         <p class="price">159.99$</p>
@@ -163,8 +165,8 @@
         <button>Learn More</button>
       </div>
     </section>
-    <h2 id="section-name">Promotions Up To 35%</h2>
-    <section class="promotions">
+    <h2 class="section-name">Promotions Up To 35%</h2>
+    <section class="promotions" data-aos="fade-up">
       <div class="promotion-details promotion1">
         <p>Save</p>
         <p class="price-tag price-tag1">15%</p>
@@ -192,8 +194,7 @@
         <p>Save</p>
         <p class="price-tag price-tag3">35%</p>
         <p class="promotion-text">
-          Check Out Our Books & Other Things That Will Help You In Your
-          Education
+          Check Out Our Books That Will Help You In Your Education
         </p>
         <img src="../../static/images/Books2.png" alt="Photo of books" />
       </div>
@@ -209,7 +210,7 @@
         />
       </div>
     </section>
-    <footer>
+    <footer data-aos="fade-up">
       <div>
         <div class="footer-heading">
           <img
@@ -269,5 +270,9 @@
         <p>Security</p>
       </div>
     </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

@@ -5,6 +5,7 @@
 body {
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     background-color: white;
+    overflow-x: hidden;
 }
 
 nav {
@@ -15,14 +16,9 @@ nav {
     padding: 1rem;
 }
 
-body::-webkit-scrollbar {
-    width: 0; 
-    background-color: transparent; 
-}
-
 .navbar a {
     color: black;
-    font-size: 1.5rem;
+    font-size: 2.8vh;
     margin: 2rem;
     letter-spacing: 0.15rem;
     transition: color 0.4s, text-shadow 0.8s;
@@ -44,7 +40,7 @@ body::-webkit-scrollbar {
     font-weight: bold;
     font-size: 2.5rem;
     margin-left: 0;
-  }
+}
 
 nav a:hover {
     color: darkgray;
@@ -52,7 +48,7 @@ nav a:hover {
 }
 
 nav #name:hover {
-    color: darkgray;
+    color: black;
 }
 
 .background-photo {
@@ -60,10 +56,11 @@ nav #name:hover {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3rem;
-    width: 100%;
+    min-width: 100%;
+    height: auto;
 }
 
-#section-name {
+.section-name {
     margin-top: 3rem;
     margin-left: 13rem;
     margin-bottom: 0.1rem;
@@ -79,23 +76,27 @@ nav #name:hover {
 .categories img {
     margin: 2rem;
     border-radius: 30px;
-    transition: transform 0.5s;
-}
-
-.categories img:hover {
-    transform: scale(1.2);
 }
 
 .electronics,
 .bags,
 .books,
-.shoes,
+.sneakers,
 .travel,
 .furniture {
     position: relative;
     color: white;
-  }
+    transition: transform 0.6s;
+}
 
+.electronics:hover,
+.bags:hover,
+.books:hover,
+.sneakers:hover,
+.travel:hover,
+.furniture:hover {
+    transform: scale(1.2);
+}
 
 .text {
     position: absolute;
@@ -131,6 +132,7 @@ nav #name:hover {
     display: flex;
     flex-direction: column;
     text-align: center;
+    width: 16vw;
 }
 
 .product p {
@@ -178,6 +180,8 @@ nav #name:hover {
     position: relative;
     margin-top: 3rem;
     margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
 }
 
 .cashback img {
@@ -187,22 +191,20 @@ nav #name:hover {
 }
 
 .cashback .background-text {
-    width: 23rem;
-    height: 23rem;
+    width: 20vw;
+    height: 20vw;
     background-color: rgb(193, 154, 107);
     position: absolute;
-    top: 12%;
     right: 15%;
-    display: flex;
 }
 
 .background-text h3 {
-    width: 23rem;
+    width: 18vw;
     color: white;
     display: flex;
-    padding: 2rem;
+    padding: 3vh;
     font-weight: bold;
-    font-size: 2.8rem;
+    font-size: 1.8vw;
     position: relative;
 }
 
@@ -212,7 +214,7 @@ nav #name:hover {
     padding: 2rem;
     bottom: 18%;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1vw;
 }
 
 .cashback button {
@@ -260,6 +262,7 @@ nav #name:hover {
     border-end-start-radius: 30px;
     border-bottom-right-radius: 30px;
     width: 100%;
+    height: 50%;
     transition: transform 0.5s;
 }
 
@@ -284,10 +287,10 @@ nav #name:hover {
 }
 
 .promotion-details p {
-    font-size: 1.5rem;
+    font-size: 2.8vh;
     position: absolute;
     left: 5%;
-    padding: 1rem;
+    padding: 0.8rem;
     font-family: Inter, Arial, Helvetica, sans-serif;
     color: rgb(56, 60, 63);
 }
@@ -295,7 +298,7 @@ nav #name:hover {
 .promotion-details .price-tag {
     left: 5%;
     top: 8%;
-    font-size: 2.8rem;
+    font-size: 5vh;
 }
 
 .promotion-details .price-tag1 {
@@ -316,7 +319,7 @@ nav #name:hover {
 
 .promotion-details .promotion-text {
     top: 25%;
-    font-size: 1.1rem;
+    font-size: 1.8vh;
     font-family:"Open Sans", Arial, Helvetica, sans-serif;
     text-align: left;
     color: black;
@@ -376,7 +379,7 @@ footer p {
 
 .column {
     width: 15vw;
-    margin: 1.7rem;
+    margin: 2.4vh;
     margin-top: 4rem;
 }
 
@@ -393,27 +396,155 @@ footer p {
 }
 
 .column p:hover {
-    transform: translateX(1.2rem);
+    transform: translateX(0.8rem);
     color: orangered;
 }
 
 @media screen and (max-width: 600px) {
-    .navbar a {
-        font-size: 3.5vw;
-        margin: 0.5vw;
-        padding: 0.2rem;
+    .navbar {
+        height: 20vh;
+        background-color: white;
+        padding: 0;
     }
 
+    .navbar a {
+        font-size: 4vh;
+        margin: 0.7rem;
+        letter-spacing: 0.15rem;
+    }
+
+    .main-nav img {
+        height: 7rem;
+        display: inline;
+    }
+    
     #name {
-        font-size: 5vw;
-        margin: 3vw;
+        font-size: 7vh;
     }
-}
+    
+    .section-name {
+        font-size: 5rem;
+        width: 80rem;
+        margin-left: 2rem;
+    }
 
-@media screen and (max-width: 1100px) {
-    .navbar a {
-        font-size: 1rem;
-        margin: 0.5vw;
-        padding: 0.2rem;
+    .categories {
+        display: grid;
+        margin-left: 170vw;
     }
+    
+    .electronics {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+
+    .bags {
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+
+    .categories img {
+        margin: 3rem;
+        border-radius: 30px;
+        width: 140vw;
+    }
+
+    .text {
+        top: 15%;
+        left: 25%;
+        font-size: 4rem;
+    }
+
+    .position1 {
+        left: 36%;
+    }
+    
+    .position2 {
+        left: 33%;
+    }
+    
+    .position3 {
+        left: 30%;
+    }
+
+    .recommendations {
+        display: grid;
+        margin-left: 170vw;
+    }
+    
+    .product {
+        width: 140vw;
+    }
+
+    #product1 {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+
+    #product2 {
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+    
+    .product p {
+        padding: 1rem;
+        font-size: 4rem;
+    }
+    
+    .review {
+        font-size: 3rem;
+    }
+    
+    .add {
+        padding: 1.5rem;
+        font-size: 3rem;
+    }
+    
+    .cashback img {
+        width: 1000%;
+        height: 140vh;
+    }
+    
+    .cashback .background-text {
+        width: 200vw;
+        height: 200vw;
+        position: absolute;
+        right: 1%;
+    }
+    
+    .background-text h3 {
+        width: 18vw;
+        color: white;
+        display: flex;
+        padding: 3vh;
+        font-weight: bold;
+        font-size: 1.8vw;
+        position: relative;
+    }
+    
+    .background-text p {
+        display: inline;
+        position: inherit;
+        padding: 2rem;
+        bottom: 18%;
+        color: white;
+        font-size: 1vw;
+    }
+    
+    .cashback button {
+        width: 9rem;
+        height: 4rem;
+        background-color: rgb(193, 154, 107);
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        border: 2px solid white;
+        border-radius: 30px;
+        position: inherit;
+        bottom: 5%;
+        left: 30%;
+        justify-content: center;
+        transition: background 0.5s, border 0.2s;
+    }
+    
 }
