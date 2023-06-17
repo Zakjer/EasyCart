@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+}
+
+body {
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+}
+
+nav {
+    height: 5vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.navbar a {
+    color: black;
+    font-size: 2.8vh;
+    margin: 2rem;
+    letter-spacing: 0.15rem;
+    transition: color 0.4s, text-shadow 0.8s;
+    text-decoration: none;
+}
+
+.main-nav {
+    margin-right: auto;
+    display: inline-flex;
+    align-items: center;
+}
+
+.main-nav img {
+    height: 7rem;
+    display: inline;
+}
+
+#name {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-left: 0;
+}
+
+nav a:hover {
+    color: darkgray;
+    text-shadow: 0 0 16px lightgray;
+}
+
+nav #name:hover {
+    color: black;
+}
+
+.center  {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    background-color: white;
+    border-radius: 30px;
+    width: 20vw;
+    height: 18vw;
+}
+
+.center h1 {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid silver;
+}
+
+.center form {
+    padding: 0 40px;
+}
+
+form .text-field {
+    position: relative;
+    border-bottom: 2px solid green;
+    margin: 30px 0;
+}
+
+.text-field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 2vw;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    outline: none;
+
+}
+
+.text-field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: purple;
+    font-size: 1rem;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.text-field span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    height: 2px;
+    background: yellow;
+}
