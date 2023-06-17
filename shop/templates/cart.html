@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="../../static/images/Cart.jpg" />
@@ -22,7 +22,10 @@
   <body>
     <nav class="navbar">
       <div class="main-nav">
-        <img src="../../static/images/Cart.jpg" alt="Image of shopping cart" />
+        <img
+          src="../../static/images/Favicon.png"
+          alt="Image of shopping cart"
+        />
         <a id="name" href="">EasyCart</a>
         <a href="">Home</a><a href="">Categories</a><a href="">About</a
         ><a href="">Contact</a>
@@ -37,19 +40,35 @@
         <tr>
           <th>Product</th>
           <th>Quantity</th>
-          <th>Subtotal</th>
+          <th class="subtotal">Subtotal</th>
         </tr>
         <tr>
           <td>
             <div class="cart-details">
               <img src="../../static/images/example2.png" alt="" />
-              <p>Razer headphones</p>
-              <p>Price: 50.00$</p>
-              <button>Remove</button>
+              <div class="item-text">
+                <p class="product-name">Razer headphones</p>
+                <p>Price: 50.00$</p>
+                <button class="remove">Remove</button>
+              </div>
             </div>
           </td>
-          <td><input type="number" /></td>
-          <td>50.00$</td>
+          <td><input min=1 max=99 type="number" /></td>
+          <td class="subtotal-value">50.00$</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cart-details">
+              <img src="../../static/images/Mouse.jpg" alt="" />
+              <div class="item-text">
+                <p class="product-name">Razer headphones</p>
+                <p>Price: 50.00$</p>
+                <button class="remove">Remove</button>
+              </div>
+            </div>
+          </td>
+          <td><input min=1 max=99 type="number" /></td>
+          <td class="subtotal-value">50.00$</td>
         </tr>
       </table>
 
@@ -66,6 +85,9 @@
           <tr>
             <td>Total</td>
             <td>230.00$</td>
+          </tr>
+          <tr>
+            <td><button class="checkout">Checkout</button></td>
           </tr>
         </table>
       </div>
