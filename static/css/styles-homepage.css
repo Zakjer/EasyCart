@@ -402,24 +402,23 @@ footer p {
 
 @media screen and (max-width: 600px) {
     .navbar {
-        height: 20vh;
+        height: 50vw;
         background-color: white;
         padding: 0;
     }
 
     .navbar a {
-        font-size: 4vh;
-        margin: 0.7rem;
-        letter-spacing: 0.15rem;
+        font-size: 9vw;
+        margin: 3vw;
     }
 
     .main-nav img {
-        height: 7rem;
+        height: 27vw;
         display: inline;
     }
     
     #name {
-        font-size: 7vh;
+        font-size: 12vw;
     }
     
     .section-name {
@@ -431,6 +430,7 @@ footer p {
     .categories {
         display: grid;
         margin-left: 170vw;
+        margin-top: 5rem;
     }
     
     .electronics {
@@ -499,27 +499,25 @@ footer p {
         padding: 1.5rem;
         font-size: 3rem;
     }
+
+    .cashback {
+        width: 0;
+        height: 0;
+    }
     
     .cashback img {
-        width: 1000%;
-        height: 140vh;
+        width: 0;
+        height: 0;
     }
     
     .cashback .background-text {
-        width: 200vw;
-        height: 200vw;
-        position: absolute;
-        right: 1%;
+        width: 0;
+        height: 0;
     }
     
     .background-text h3 {
-        width: 18vw;
-        color: white;
-        display: flex;
-        padding: 3vh;
-        font-weight: bold;
-        font-size: 1.8vw;
-        position: relative;
+        width: 0;
+        font-size: 0;
     }
     
     .background-text p {
@@ -532,19 +530,90 @@ footer p {
     }
     
     .cashback button {
-        width: 9rem;
-        height: 4rem;
-        background-color: rgb(193, 154, 107);
-        color: white;
-        font-weight: bold;
-        font-size: 1.2rem;
-        border: 2px solid white;
-        border-radius: 30px;
-        position: inherit;
-        bottom: 5%;
-        left: 30%;
-        justify-content: center;
-        transition: background 0.5s, border 0.2s;
+        width: 0;
+        height: 0;
     }
     
+    .promotions {
+        display: grid;
+    }
+    
+    .promotion-details {
+        width: 300vw;
+        height: 450vw;
+        margin-left: 250vw;
+        margin-top: 3rem;
+    }
+    
+    .promotion-details p {
+        font-size: 13vh;
+        padding: 3rem;
+    }
+    
+    .promotion-details .price-tag {
+        font-size: 20vh;
+    }
+    
+    .promotion-details .promotion-text {
+        font-size: 8vh;
+    }
+
+    footer {
+        width: 1000%;
+        height: 38vh;
+        margin-top: 4rem;
+        display: grid;
+    }
+    
+    footer h3 {
+        padding-bottom: 0;
+        font-size: 5.5rem;
+        width: 300vw;
+        text-align: center;
+    }
+    
+    footer img {
+        width: 50vw;
+    }
+    
+    #easycart-p {
+        width: 300vw;
+        display: flex;
+        font-size: 3rem;
+    }
+
+    footer p {
+        padding: 3rem;
+        padding-top: 0;
+        width: 300vw;
+    }
+    
+    .payments {
+        margin-left: 8rem;
+    }
+    
+    .footer-images img{
+        width: 10rem;
+        height: 5rem;
+        margin: 0.5rem;
+    }
+    
+    .column {
+        width: 15vw;
+        margin: 2.4vh;
+        margin-top: 4rem;
+        text-align: center;
+    }
+    
+    .column h3 {
+        font-size: 4.5rem;
+    }
+    
+    .column p {
+        font-size: 3rem;
+    }
+    
+    .column p:hover {
+        transform: translateX(1.3rem);
+    }
 }

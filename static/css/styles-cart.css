@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+}
+
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+nav {
+    height: 5vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.navbar a {
+    color: black;
+    font-size: 2.8vh;
+    margin: 2rem;
+    letter-spacing: 0.15rem;
+    transition: color 0.4s, text-shadow 0.8s;
+    text-decoration: none;
+}
+
+.main-nav {
+    margin-right: auto;
+    display: inline-flex;
+    align-items: center;
+}
+
+.main-nav img {
+    height: 7rem;
+    display: inline;
+}
+
+#name {
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-left: 0;
+}
+
+nav a:hover {
+    color: darkgray;
+    text-shadow: 0 0 16px lightgray;
+}
+
+nav #name:hover {
+    color: black;
+}
+
+table {
+    width: 100%;
+}
+
+.cart {
+    margin: 3vw;
+}
+
+.cart-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+th {
+    text-align: left;
+    padding: 5px;
+    color: white;
+    background-color: red;
+}
+
+td {
+    padding: 10px 5px;
+}
+
+td input {
+    width: 1.7vw;
+    height: 1vw;
+    padding: 5px;
+}
+
+td button {
+    color: red;
+}
+
+td img {
+    width: 10vw;
+    height: 10vw;
+    margin-right: 2rem;
+}
+
+.total-price {
+    display: flex;
+    text-align: right;
+}
+
+.total-price table {
+    border-top: 3px solid green;
+    width: 30%;
+}
