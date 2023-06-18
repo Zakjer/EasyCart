@@ -53,12 +53,12 @@ nav #name:hover {
 
 .center  {
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 40%;
     background-color: white;
     border-radius: 30px;
-    width: 20vw;
-    height: 19vw;
+    width: 23vw;
+    height: 30vw;
 }
 
 .center h1 {
@@ -94,9 +94,10 @@ form .text-field input:valid {
     border-bottom: 2px solid rgb(0, 150, 255);
 }
 
-form .text-field input:not(:placeholder-shown):invalid {
+form .text-field input:not(:placeholder-shown):invalid{
     border-bottom: 2px solid red;
-}
+  }
+
 
 .text-field label {
     position: absolute;
@@ -115,10 +116,10 @@ form .text-field input:not(:placeholder-shown):invalid {
     color: rgb(0, 150, 255);
 }
 
-.text-field input:not(:placeholder-shown):invalid ~ label {
+.text-field input:not(:placeholder-shown):invalid ~ label{
     top: -5px;
     color: red;
-}
+  }
 
 .login {
     width: 100%;
