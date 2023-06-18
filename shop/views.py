@@ -1,7 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
+from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import status
+
+from django.shortcuts import render
 
 from .serializers import CustomerSerializer, OrderSerializer, ProductImageSerializer, ProductSerializer, ReviewSerializer
 from .models import Customer, Order, Product, ProductImage, Review, OrderItem
@@ -11,6 +14,12 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.prefetch_related('images').all()
     serializer_class = ProductSerializer
     permission_classes=[IsAdminOrReadOnly]
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'products.html'
+
+    def get(self, request):
+        queryset = Product.objects.prefetch_related('images').all()
+        return Response({'products': queryset})
 
     def get_serializer_context(self):
         return {'request': self.request}

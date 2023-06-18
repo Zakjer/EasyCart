@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../static/css/styles-products.css" />
-    <link rel="stylesheet" href="../../static/normalize.css" />
+    <link rel="stylesheet" href="{% static 'css/styles-navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles-products.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -20,21 +22,7 @@
     ></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="main-nav">
-          <img
-            src="../../static/images/Favicon.png"
-            alt="Image of shopping cart"
-          />
-          <a id="name" href="">EasyCart</a>
-          <a href="">Home</a><a href="">Categories</a><a href="">About</a
-          ><a href="">Contact</a>
-        </div>
-        <a href=""><i class="fa-solid fa-user"></i>&ensp;Account</a
-        ><a href="cart.html"
-          ><i class="fa-solid fa-cart-shopping"></i>&ensp;Cart</a
-        >
-      </nav>
+    {% include 'navbar.html' %}
       <section class="shop-container">
         <h1>Shop Products</h1>
         <div class="shop-content">
@@ -43,7 +31,6 @@
                 <h2>Mx Master Mouse</h2>
                 <span class="price">80$</span>
                 <button><i class="fa-solid fa-cart-plus"></i></i></button>
-                
             </div>
             <div class="product-box">
                 <img src="../../static/images/example1.png" alt="">

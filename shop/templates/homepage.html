@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/styles-homepage.css' %}" />
+    <link rel="stylesheet" href="../static/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="../static/images/Cart.jpg" />
+    <title>EasyCart</title>
+    <script
+      src="https://kit.fontawesome.com/3b0b25f0f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <img
+      class="background-photo"
+      src="../static/images/background.jpg"
+      alt="Background photo of the website"
+    />
+    <h2 class="section-name">Check Out Our Top Categories</h2>
+    <section class="categories" data-aos="zoom-in">
+      <div class="electronics">
+        <img
+          src="../static/images/Electronic.png"
+          alt="Photo of electronic devices"
+        />
+        <h3 class="text">Electronics</h3>
+      </div>
+      <div class="bags">
+        <img src="../static/images/Bags.png" alt="Photo of bags" />
+        <h3 class="text position1">Bags</h3>
+      </div>
+      <div class="books">
+        <img src="../static/images/Books.png" alt="Photo of books" />
+        <h3 class="text position2">Books</h3>
+      </div>
+      <div class="sneakers">
+        <img src="../static/images/Shoes.png" alt="Photo of shoes" />
+        <h3 class="text position2">Sneakers</h3>
+      </div>
+      <div class="travel">
+        <img
+          src="../static/images/Travel.png"
+          alt="Photo of suitcase and hat"
+        />
+        <h3 class="text position2">Travel</h3>
+      </div>
+      <div class="furniture">
+        <img src="../static/images/Furniture.png" alt="Photo of furniture" />
+        <h3 class="text position3">Furniture</h3>
+      </div>
+    </section>
+    <h2 class="section-name">Products Recommended For You</h2>
+    <section class="recommendations" data-aos="fade-up">
+      <div class="product" id="product1">
+        <img src="../static/images/example1.png" alt="Photo of watch" />
+        <p>Samsung watch ultra</p>
+        <p class="price">129.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product" id="product2">
+        <img src="../static/images/example2.png" alt="Photo of headphones" />
+        <p>Razer kraken pro</p>
+        <p class="price">159.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="../static/images/example3.png" alt="Photo of bag" />
+        <p>Purple bag</p>
+        <p class="price">29.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="../static/images/example4.png" alt="Photo of bottle" />
+        <p>Water bottle</p>
+        <p class="price">9.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa-solid fa-star-half-stroke"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+      <div class="product">
+        <img src="../static/images/example5.png" alt="Photo of suitcase" />
+        <p>Yellow suitcase</p>
+        <p class="price">39.99$</p>
+        <div class="review">
+          <i>Reviews</i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+          <button class="add">
+            Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="cashback">
+      <img src="../static/images/Room.jpg" alt="Photo of cozy room with sofa" />
+      <div class="background-text">
+        <h3>Get 10% Cash back On 250$</h3>
+        <p>
+          Get up to $25 off for every $250 you spend! The Offer Is Valid For All
+          Products From The Furniture Collection.
+        </p>
+        <button>Learn More</button>
+      </div>
+    </section>
+    <h2 class="section-name">Promotions Up To 35%</h2>
+    <section class="promotions" data-aos="fade-up">
+      <div class="promotion-details promotion1">
+        <p>Save</p>
+        <p class="price-tag price-tag1">15%</p>
+        <p class="promotion-text">
+          Check Out Our School Essentials & Electronics
+        </p>
+
+        <img
+          src="../static/images/Books3.png"
+          alt="Photo of school equipment"
+        />
+      </div>
+      <div class="promotion-details promotion2">
+        <p>Save</p>
+        <p class="price-tag price-tag2">25%</p>
+        <p class="promotion-text">
+          Explore Our Clothes & Everything You Need For Holiday
+        </p>
+        <img
+          src="../static/images/Travel2.png"
+          alt="Photo of holiday clothing"
+        />
+      </div>
+      <div class="promotion-details promotion3">
+        <p>Save</p>
+        <p class="price-tag price-tag3">35%</p>
+        <p class="promotion-text">
+          Check Out Our Books That Will Help You In Your Education
+        </p>
+        <img src="../static/images/Books2.png" alt="Photo of books" />
+      </div>
+      <div class="promotion-details promotion4">
+        <p>Save</p>
+        <p class="price-tag price-tag4">15%</p>
+        <p class="promotion-text">
+          Explore Our Furniture & Home Furnishing Range
+        </p>
+        <img src="../static/images/Furniture2.png" alt="Photo of furniture" />
+      </div>
+    </section>
+    <footer data-aos="fade-up">
+      <div>
+        <div class="footer-heading">
+          <img src="../static/images/Cart.jpg" alt="Image of shopping cart" />
+          <h3>EasyCart</h3>
+        </div>
+        <p id="easycart-p">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est molestiae
+          dolore placeat. Quaerat numquam possimus distinctio omnis
+          necessitatibus ullam repellat. Odit minus alias sed quibusdam
+          molestias animi hic vitae voluptate.
+        </p>
+        <div class="payment-section">
+          <h3 class="payments">Accepted Payments</h3>
+          <div class="footer-images">
+            <img src="../static/images/Visa.png" alt="Visa" />
+            <img src="../static/images/Mastercard.png" alt="Visa" />
+            <img src="../static/images/ApplePay.png" alt="Visa" />
+            <img src="../static/images/GooglePay.png" alt="Visa" />
+            <img src="../static/images/PayPal.png" alt="Visa" />
+            <img src="../static/images/Amazon.png" alt="Visa" />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h3>Deparment</h3>
+        <p>Furniture</p>
+        <p>Books</p>
+        <p>Sneakers</p>
+        <p>Travel</p>
+        <p>Electronic</p>
+        <p>Bags</p>
+      </div>
+      <div class="column">
+        <h3>About Us</h3>
+        <p>About EasyCart</p>
+        <p>Help</p>
+        <p>Shop By Location</p>
+        <p>Easycart Brands</p>
+        <p>Partners</p>
+      </div>
+      <div class="column">
+        <h3>Services</h3>
+        <p>Mobile App</p>
+        <p>Order Pickup</p>
+        <p>Shipping</p>
+        <p>Account Signup</p>
+      </div>
+      <div class="column">
+        <h3>Help</h3>
+        <p>EasyCart Help</p>
+        <p>Returns</p>
+        <p>Feedback</p>
+        <p>Contact Us</p>
+        <p>Security</p>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
