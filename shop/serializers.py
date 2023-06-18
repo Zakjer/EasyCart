@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Customer, Order, Product, ProductImage, OrderItem, Review
+from .models import Customer, Order, Product, ProductImage, OrderItem, Review, CartItem, Cart
 
 class ProductImageSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
@@ -66,7 +66,44 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = ['id', 'stars', 'text', 'date']
 
+
+class CartItemSerializer(serializers.ModelSerializer):
+    product = SimpleProductSerializer()
+    total_price = serializers.SerializerMethodField()
     
+    def get_total_price(self, cart_item):
+        return cart_item.quantity * cart_item.product.price
+
+    class Meta:
+        model = CartItem
+        fields = ['id', 'product', 'quantity', 'total_price']
+
+
+class CartSerializer(serializers.ModelSerializer):
+    id = serializers.UUIDField(read_only=True)
+    items = CartItemSerializer(many=True, read_only=True)
+    total_price = serializers.SerializerMethodField()
+
+    def get_total_price(self, cart):
+        return sum([item.quantity * item.product.price for item in cart.items.all()])
+    
+    class Meta:
+        model = Cart
+        fields = ['id', 'items', 'total_price']
+
+
+class AddCartItemSerializer(serializers.ModelSerializer):
+    product_id = serializers.IntegerField()
+    
+
+    class Meta:
+        model = CartItem
+        fields = ['id', 'product_id', 'quantity']
+
+class UpdateCartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CartItem
+        fields = ['quantity']
 
 
 
