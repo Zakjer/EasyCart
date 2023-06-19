@@ -4,19 +4,13 @@ from . import models
 
 admin.site.site_header = 'Book shop administration'
 
-class ProductImageInLine(admin.TabularInline):
-    model = models.ProductImage
-    readonly_fields = ['id', 'product_id']
-
-
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'short_description', 'price']
+    list_display = ['title', 'short_description', 'price', 'image']
     search_fields = ['title', 'description']
     list_editable = ['price']
     ordering = ['title', 'price']
     list_per_page = 20
-    inlines = [ProductImageInLine]
     
     def short_description(self, product_instance):
         return product_instance.description[:50]
@@ -69,7 +63,7 @@ class ReviewAdmin(admin.ModelAdmin):
     exclude = ['product']
     
 
-admin.site.register(models.ProductImage)
+
 
 
 

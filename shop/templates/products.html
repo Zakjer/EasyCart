@@ -26,41 +26,14 @@
       <section class="shop-container">
         <h1>Shop Products</h1>
         <div class="shop-content">
+            {% for product in products %}
             <div class="product-box">
-                <img src="../../static/images/Mouse.jpg" alt="">
-                <h2>Mx Master Mouse</h2>
-                <span class="price">80$</span>
+                <img src="{{ product.image.url }}" alt="">
+                <h2>{{product.title }}</h2>
+                <span class="price">{{ product.price }}$</span>
                 <button><i class="fa-solid fa-cart-plus"></i></i></button>
             </div>
-            <div class="product-box">
-                <img src="../../static/images/example1.png" alt="">
-                <h2>Watch</h2>
-                <span class="price">80$</span>
-                
-                <button><i class="fa-solid fa-cart-plus"></i></i></button>
-            </div>
-            <div class="product-box">
-                <img src="../../static/images/example2.png" alt="">
-                <h2>Razer headphones</h2>
-                <span class="price">80$</span>
-
-                <button><i class="fa-solid fa-cart-plus"></i></i></button>
-            </div>
-            <div class="product-box">
-                <img src="../../static/images/example3.png" alt="">
-                <h2>Pink bag</h2>
-                <span class="price">80$</span>
-                
-                <button><i class="fa-solid fa-cart-plus"></i></i></button>
-            </div>
-            <div class="product-box">
-                <img src="../../static/images/example4.png" alt="">
-                <h2>Bottle</h2>
-                <span class="price">80$</span>
-                
-                <button><i class="fa-solid fa-cart-plus"></i></i></button>
-            </div>
-            
+            {% endfor %}
         </div>
       </section>
 </body>
