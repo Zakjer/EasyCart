@@ -19,7 +19,17 @@ def products(request):
     return render(request, 'products.html', context)
     
 def cart(request):
-    return render(request, 'cart.html')
+
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        cart, created = Cart.objects.get_or_create(customer=customer)
+        items = cart.cartitem_set.all()
+    else:
+        items = []
+
+    context = {'items': items, 'cart': cart}
+
+    return render(request, 'cart.html', context)
 
 def homepage(request):
     five_products = Product.objects.all()[:5]

@@ -63,7 +63,12 @@ class Review(models.Model):
 class Cart(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4)
     created_at = models.DateTimeField(auto_now_add=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
+    @property
+    def total(self):
+        return sum([item.subtotal for item in self.cartitem_set.all()])
+        
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
@@ -72,6 +77,10 @@ class CartItem(models.Model):
 
     class Meta:
         unique_together = [['cart', 'product']]
+
+    @property
+    def subtotal(self):
+        return self.product.price * self.quantity
 
 
 

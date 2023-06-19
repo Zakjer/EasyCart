@@ -30,41 +30,34 @@
           <th>Quantity</th>
           <th class="subtotal">Subtotal</th>
         </tr>
+        {% for item in items %}
         <tr class="item">
           <td>
             <div class="cart-details">
               <img src="../../static/images/example2.png" alt="" />
               <div class="item-text">
-                <p class="product-name">Razer headphones</p>
-                <p>Price: 50.00$</p>
+                <p class="product-name">{{ item.product.title }}</p>
+                <p>Price: {{ item.product.price }}$</p>
                 <button class="remove">Remove</button>
               </div>
             </div>
           </td>
-          <td><input min="1" max="99" type="number" /></td>
-          <td class="subtotal-value">50.00$</td>
-        </tr>
-        <tr class="item">
           <td>
-            <div class="cart-details">
-              <img src="../../static/images/Mouse.jpg" alt="" />
-              <div class="item-text">
-                <p class="product-name">Razer headphones</p>
-                <p>Price: 50.00$</p>
-                <button class="remove">Remove</button>
-              </div>
-            </div>
+            <input min="1" max="99" type="number" />
+            <p>{{ item.quantity }}</p>
           </td>
-          <td><input min="1" max="99" type="number" /></td>
-          <td class="subtotal-value">50.00$</td>
+          <td class="subtotal-value">{{ item.subtotal }}$</td>
         </tr>
+        {% endfor %}
       </table>
 
       <div class="total-price">
         <table>
           <tr>
             <td>Subtotal</td>
-            <td>200.00$</td>
+            {% for cart in cart %}
+            <td>{{ cart.total }}$</td>
+            {% endfor %}
           </tr>
           <tr>
             <td>Tax</td>
