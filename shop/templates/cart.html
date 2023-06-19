@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+{% load static%}
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../static/css/styles-cart.css" />
-    <link rel="stylesheet" href="../../static/normalize.css" />
+    <link rel="stylesheet" href="{% static 'css/styles-cart.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles-navbar.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -20,6 +22,7 @@
     ></script>
   </head>
   <body>
+    {% include 'navbar.html' %}
     <section class="cart">
       <table>
         <tr>

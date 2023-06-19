@@ -7,7 +7,7 @@ from rest_framework import status
 from django.shortcuts import render
 
 from .serializers import CustomerSerializer, OrderSerializer, ProductSerializer, ReviewSerializer
-from .models import Customer, Order, Product, Review, OrderItem
+from .models import Customer, Order, Product, Review, OrderItem, Cart
 from .permissions import IsAdminOrReadOnly
 
 
@@ -18,6 +18,22 @@ def products(request):
     }
     return render(request, 'products.html', context)
     
+def cart(request):
+    return render(request, 'cart.html')
+
+def homepage(request):
+    five_products = Product.objects.all()[:5]
+    context = {
+        'products': five_products
+    }
+    return render(request, 'homepage.html', context)
+
+def login(request):
+    return render(request, 'login.html')
+
+def signup(request):
+    return render(request, 'signup.html')
+
 
 # class ProductViewSet(ModelViewSet):
 #     queryset = Product.objects.prefetch_related('images').all()

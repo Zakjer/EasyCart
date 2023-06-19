@@ -1,10 +1,14 @@
+{% load static %}
 <nav class="navbar">
   <div class="main-nav">
-    <img src="../static/images/Cart.jpg" alt="Image of shopping cart" />
-    <a id="name" href="">EasyCart</a>
-    <a href="">Home</a><a href="">Categories</a><a href="">About</a
+    <img src="{% static 'images/Favicon.png' %}" alt="Image of shopping cart" />
+    <a id="name" href="{% url 'homepage' %}">EasyCart</a>
+    <a href="{% url 'homepage' %}">Home</a
+    ><a href="{% url 'products' %}">Products</a><a href="">About</a
     ><a href="">Contact</a>
   </div>
-  <a href="login.html"><i class="fa-solid fa-user"></i>&ensp;Account</a
-  ><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i>&ensp;Cart</a>
+  <a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>&ensp;Account</a
+  ><a href="{% url 'cart' %}"
+    ><i class="fa-solid fa-cart-shopping"></i>&ensp;Cart</a
+  >
 </nav>

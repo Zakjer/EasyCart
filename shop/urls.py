@@ -17,7 +17,11 @@ from shop import views
 
 # urlpatterns = router.urls + products_router.urls
 urlpatterns = [
-    path("products/", views.products),
+    path('products/', views.products, name='products'),
+    path('cart/', views.cart, name='cart'),
+    path('homepage/', views.homepage, name='homepage'),
+    path('login/', views.login, name='login'),
+    path('signup/', views.signup, name='signup'),
 ]
 
 
