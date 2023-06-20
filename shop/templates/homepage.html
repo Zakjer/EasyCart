@@ -24,6 +24,7 @@
       src="https://kit.fontawesome.com/3b0b25f0f2.js"
       crossorigin="anonymous"
     ></script>
+    {% include 'csrf.html' %}
   </head>
   <body>
     {% include 'navbar.html' %}
@@ -82,7 +83,11 @@
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa-solid fa-star-half-stroke"></i>
-          <button class="add">
+          <button
+            data-product="{{product.id}}"
+            data-action="add"
+            class="add update-cart"
+          >
             Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
           </button>
         </div>
@@ -212,5 +217,6 @@
     <script>
       AOS.init();
     </script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
   </body>
 </html>

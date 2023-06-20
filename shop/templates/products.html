@@ -20,6 +20,7 @@
       src="https://kit.fontawesome.com/3b0b25f0f2.js"
       crossorigin="anonymous"
     ></script>
+    {% include 'csrf.html' %}
 </head>
 <body>
     {% include 'navbar.html' %}
@@ -31,10 +32,11 @@
                 <img src="{{ product.image.url }}" alt="">
                 <h2>{{product.title }}</h2>
                 <span class="price">{{ product.price }}$</span>
-                <button><i class="fa-solid fa-cart-plus"></i></i></button>
+                <button data-product="{{product.id}}" data-action="add" class="update-cart"><i class="fa-solid fa-cart-plus"></i></i></button>
             </div>
             {% endfor %}
         </div>
       </section>
+      <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 </body>
 </html>

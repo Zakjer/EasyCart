@@ -119,3 +119,30 @@ td img {
 .checkout:hover {
     background-color: rgb(86, 190, 238);
 }
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+  }
+  
+.button-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.5vw;
+  }
+
+.button-container button {
+    width: 2vw;
+    height: 2vw;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid rgb(86, 190, 238);
+}
+
+.button-container button:hover {
+    background-color: rgb(86, 190, 238);
+    color: white;
+    transition: 0.3s;
+}

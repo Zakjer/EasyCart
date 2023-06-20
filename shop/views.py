@@ -5,9 +5,11 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import status
 
 from django.shortcuts import render
+from django.http import JsonResponse
+import json
 
 from .serializers import CustomerSerializer, OrderSerializer, ProductSerializer, ReviewSerializer
-from .models import Customer, Order, Product, Review, OrderItem, Cart
+from .models import Customer, Order, Product, Review, OrderItem, Cart, CartItem
 from .permissions import IsAdminOrReadOnly
 
 
@@ -30,6 +32,37 @@ def cart(request):
     context = {'items': items, 'cart': cart}
 
     return render(request, 'cart.html', context)
+
+def update_cart(request):
+    print(request.body)
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+    print('Action:', action)
+    print('Product:', productId)
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+    cart, created = Cart.objects.get_or_create(customer=customer)
+
+    try:
+        cart_item = CartItem.objects.get(cart=cart, product=product)
+    except CartItem.DoesNotExist:
+        cart_item = CartItem.objects.create(quantity=0, cart=cart, product=product)
+
+    if action == 'add':
+        cart_item.quantity = cart_item.quantity + 1
+    elif action == 'delete':
+        cart_item.quantity = cart_item.quantity - 1
+    elif action == 'remove':
+        cart_item.quantity = 0
+
+    cart_item.save()
+
+    if cart_item.quantity <= 0:
+        cart_item.delete()
+    
+    return JsonResponse('Item was added', safe=False)
 
 def homepage(request):
     five_products = Product.objects.all()[:5]

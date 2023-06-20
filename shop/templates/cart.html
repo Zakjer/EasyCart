@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/styles-cart.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/normalize.css.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
     <link rel="stylesheet" href="{% static 'css/styles-navbar.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,12 +14,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/x-icon" href="../../static/images/Cart.jpg" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/Cart.jpg' %}"
+    />
     <title>EasyCart</title>
     <script
       src="https://kit.fontawesome.com/3b0b25f0f2.js"
       crossorigin="anonymous"
     ></script>
+    {% include 'csrf.html' %}
   </head>
   <body>
     {% include 'navbar.html' %}
@@ -34,17 +39,40 @@
         <tr class="item">
           <td>
             <div class="cart-details">
-              <img src="../../static/images/example2.png" alt="" />
+              <img src="{{ item.product.image.url }}" alt="Photo of product" />
               <div class="item-text">
                 <p class="product-name">{{ item.product.title }}</p>
                 <p>Price: {{ item.product.price }}$</p>
-                <button class="remove">Remove</button>
+                <button
+                  data-product="{{item.product.id}}"
+                  data-action="remove"
+                  class="remove update-cart"
+                >
+                  Remove
+                </button>
               </div>
             </div>
           </td>
           <td>
-            <input min="1" max="99" type="number" />
-            <p>{{ item.quantity }}</p>
+            <div class="quantity-container">
+              <span>{{ item.quantity }}</span>
+              <div class="button-container">
+                <button
+                  data-product="{{item.product.id}}"
+                  data-action="add"
+                  class="update-cart"
+                >
+                  +
+                </button>
+                <button
+                  data-product="{{item.product.id}}"
+                  data-action="delete"
+                  class="update-cart"
+                >
+                  -
+                </button>
+              </div>
+            </div>
           </td>
           <td class="subtotal-value">{{ item.subtotal }}$</td>
         </tr>
@@ -55,17 +83,16 @@
         <table>
           <tr>
             <td>Subtotal</td>
-            {% for cart in cart %}
-            <td>{{ cart.total }}$</td>
-            {% endfor %}
+
+            <td>{{ cart.total_without_tax }}$</td>
           </tr>
           <tr>
             <td>Tax</td>
-            <td>30.00$</td>
+            <td>{{ cart.tax }}$</td>
           </tr>
           <tr>
             <td>Total</td>
-            <td>230.00$</td>
+            <td>{{ cart.total_with_tax }}$</td>
           </tr>
           <tr>
             <td><button class="checkout">Checkout</button></td>
@@ -73,5 +100,6 @@
         </table>
       </div>
     </section>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
   </body>
 </html>
