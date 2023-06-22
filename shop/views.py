@@ -28,6 +28,7 @@ def cart(request):
         items = cart.cartitem_set.all()
     else:
         items = []
+        cart = {}
 
     context = {'items': items, 'cart': cart}
 
@@ -48,7 +49,7 @@ def update_cart(request):
     try:
         cart_item = CartItem.objects.get(cart=cart, product=product)
     except CartItem.DoesNotExist:
-        cart_item = CartItem.objects.create(quantity=0, cart=cart, product=product)
+        cart_item = CartItem.objects.prefetch_related('product').create(quantity=0, cart=cart, product=product)
 
     if action == 'add':
         cart_item.quantity = cart_item.quantity + 1

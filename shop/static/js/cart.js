@@ -7,7 +7,7 @@ for (i = 0; i < updateBtns.length; i++) {
         console.log('productId: ', productId, 'Action:', action)
         console.log('USER:', user)
 
-        if (user == 'AnonymusUser') {
+        if (user == 'AnonymousUser') {
             console.log('User is not authenticated')
         }
         else {
