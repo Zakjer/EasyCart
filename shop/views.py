@@ -12,23 +12,38 @@ from .serializers import CustomerSerializer, OrderSerializer, ProductSerializer,
 from .models import Customer, Order, Product, Review, OrderItem, Cart, CartItem
 from .permissions import IsAdminOrReadOnly
 
-
-def products(request):
-    products = Product.objects.all()
-    context = {
-        'products': products
-    }
-    return render(request, 'products.html', context)
-    
-def cart(request):
-
+def get_cart_and_items(request):
     if request.user.is_authenticated:
         customer = request.user.customer
         cart, created = Cart.objects.get_or_create(customer=customer)
         items = cart.cartitem_set.all()
+        cart_items = cart.total_quantity
     else:
+        try:
+            cart = json.loads(request.COOKIES['cart'])
+        except KeyError:
+            cart = {}
+        print('Cart2:', cart)
         items = []
-        cart = {}
+        order = {'total_without_tax': 0, 'total_with_tax': 0, 'total_quantity': 0}
+        cart_items = cart['total_quantity']
+
+        for i in cart:
+            cart_items += cart[i]['quantity']
+
+    return items, cart
+
+def products(request):
+    products = Product.objects.all()
+    
+    items, cart = get_cart_and_items(request)
+
+    context = {'products': products, 'cart': cart}
+
+    return render(request, 'products.html', context)
+    
+def cart(request):
+    items,cart = get_cart_and_items(request)
 
     context = {'items': items, 'cart': cart}
 
@@ -67,9 +82,10 @@ def update_cart(request):
 
 def homepage(request):
     five_products = Product.objects.all()[:5]
-    context = {
-        'products': five_products
-    }
+
+    items, cart = get_cart_and_items(request)
+
+    context = {'products': five_products, 'items': items, 'cart': cart}
     return render(request, 'homepage.html', context)
 
 def login(request):

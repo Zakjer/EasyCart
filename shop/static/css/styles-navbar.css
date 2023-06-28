@@ -42,6 +42,14 @@ nav #name:hover {
     color: black;
 }
 
+.number {
+    display: inline;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    padding: 3px;
+}
+
 @media screen and (max-width: 600px) {
     .navbar {
         height: 50vw;

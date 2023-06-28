@@ -9,6 +9,7 @@
   </div>
   <a href="{% url 'login' %}"><i class="fa-solid fa-user"></i>&ensp;Account</a
   ><a href="{% url 'cart' %}"
-    ><i class="fa-solid fa-cart-shopping"></i>&ensp;Cart</a
+    ><i class="fa-solid fa-cart-shopping"></i>&ensp;Cart
+    <div class="number">{{ cart.total_quantity }}</div></a
   >
 </nav>
