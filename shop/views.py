@@ -7,6 +7,7 @@ from rest_framework import status
 from django.shortcuts import render
 from django.http import JsonResponse
 import json
+from decimal import Decimal
 
 from .serializers import CustomerSerializer, OrderSerializer, ProductSerializer, ReviewSerializer
 from .models import Customer, Order, Product, Review, OrderItem, Cart, CartItem
@@ -20,18 +21,46 @@ def get_cart_and_items(request):
         cart_items = cart.total_quantity
     else:
         try:
-            cart = json.loads(request.COOKIES['cart'])
+            order = json.loads(request.COOKIES['cart'])
         except KeyError:
-            cart = {}
-        print('Cart2:', cart)
+            order = {}
+        
         items = []
-        order = {'total_without_tax': 0, 'total_with_tax': 0, 'total_quantity': 0}
+        cart = {'total_without_tax': 0, 'tax': 0, 'total_with_tax': 0, 'total_quantity': 0}
         cart_items = cart['total_quantity']
+        
+        for i in order:
+            cart_items += order[i]['quantity']
 
-        for i in cart:
-            cart_items += cart[i]['quantity']
+            product = Product.objects.get(id=i)
+            total = product.price * order[i]['quantity']
+            subtotal = product.price * order[i]['quantity']
+            tax = round(total * Decimal(0.2), 2)
+            total_with_tax = total + tax
+
+            cart['total_without_tax'] += total
+            cart['total_with_tax'] += total_with_tax
+            cart['tax'] += tax
+            cart['total_quantity'] += order[i]['quantity']
+
+            item = {
+                'product': {
+                    'id': product.id,
+                    'title': product.title,
+                    'description': product.description,
+                    'price': product.price,
+                    'image': product.image,
+                },
+                'subtotal': subtotal,
+                'quantity': order[i]['quantity'],
+                'total_without_tax': total,
+                'tax': tax,
+                'total_with_tax': total_with_tax
+            }
+            items.append(item)
 
     return items, cart
+
 
 def products(request):
     products = Product.objects.all()
