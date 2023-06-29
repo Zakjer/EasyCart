@@ -25,7 +25,8 @@
     {% include 'navbar.html' %}
     <section class="center">
       <h1>Signup</h1>
-      <form method="post">
+      <form method="POST">
+        {% csrf_token %} {{form.xd.label}}
         <div class="text-field">
           <input
             placeholder=" "

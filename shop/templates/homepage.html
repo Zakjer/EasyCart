@@ -83,10 +83,12 @@
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa-solid fa-star-half-stroke"></i>
+          <div id="info" style="display: none" class="answer_list">WELCOME</div>
           <button
             data-product="{{product.id}}"
             data-action="add"
             class="add update-cart"
+            onclick="addProductInfo()"
           >
             Add to Cart&ensp;<i class="fa-solid fa-cart-shopping"></i>
           </button>

@@ -6,6 +6,7 @@ from rest_framework import status
 
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth.forms import UserCreationForm
 import json
 from decimal import Decimal
 
@@ -121,7 +122,10 @@ def login(request):
     return render(request, 'login.html')
 
 def signup(request):
-    return render(request, 'signup.html')
+    form = UserCreationForm()
+    
+    context = {'form': form}
+    return render(request, 'signup.html', context)
 
 
 # class ProductViewSet(ModelViewSet):

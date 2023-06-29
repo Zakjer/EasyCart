@@ -28,6 +28,10 @@ function addCookieItem(productId, action) {
     }
 
     if (action == 'remove') {
+        delete cart[productId]
+    }
+
+    if (action == 'delete') {
         cart[productId]['quantity'] -= 1
 
         if (cart[productId]['quantity'] <= 0) {
@@ -60,4 +64,8 @@ function updateUserOrder(productId, action) {
         console.log('Data:', data)
         location.reload()
     });
+}
+
+function addProductInfo() {
+    document.getElementById("info").style.display = "block"
 }

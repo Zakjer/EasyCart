@@ -13,7 +13,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 3rem;
-    min-width: 100%;
+    width: 100%;
     height: auto;
 }
 
