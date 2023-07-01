@@ -26,66 +26,16 @@
     <section class="center">
       <h1>Signup</h1>
       <form method="POST">
-        {% csrf_token %} {{form.xd.label}}
-        <div class="text-field">
-          <input
-            placeholder=" "
-            type="text"
-            minlength="5"
-            maxlength="30"
-            required
-          />
-
-          <label for="">First name</label>
-        </div>
-        <div class="text-field">
-          <input
-            placeholder=" "
-            type="text"
-            minlength="5"
-            maxlength="30"
-            required
-          />
-
-          <label for="">Last name</label>
-        </div>
-        <div class="text-field">
-          <input
-            placeholder=" "
-            type="email"
-            minlength="5"
-            maxlength="35"
-            required
-          />
-
-          <label for="">Email</label>
-        </div>
-        <div class="text-field">
-          <input
-            placeholder=" "
-            type="text"
-            minlength="5"
-            maxlength="30"
-            required
-          />
-
-          <label for="">Username</label>
-        </div>
-        <div class="text-field">
-          <input
-            placeholder=" "
-            type="password"
-            minlength="5"
-            maxlength="30"
-            required
-          />
-
-          <label for="">Password</label>
-        </div>
-        <input type="submit" value="Signup" class="login" />
+        {% csrf_token %}
+        <div class="text-field">{{form.username}}</div>
+        <div class="text-field">{{form.email}}</div>
+        <div class="text-field">{{form.password1}}</div>
+        <div class="text-field">{{form.password2}}</div>
+        <button type="submit">Signup</button>
         <p>Already have an account?</p>
         <a class="signup" href="{% url 'login' %}">Login</a>
       </form>
     </section>
+    <script type="text/javascript" src="{% static 'js/signup.js' %}"></script>
   </body>
 </html>

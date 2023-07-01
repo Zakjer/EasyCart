@@ -4,14 +4,14 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import status
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
-from django.contrib.auth.forms import UserCreationForm
 import json
 from decimal import Decimal
 
 from .serializers import CustomerSerializer, OrderSerializer, ProductSerializer, ReviewSerializer
 from .models import Customer, Order, Product, Review, OrderItem, Cart, CartItem
+from .forms import CreateUserForm
 from .permissions import IsAdminOrReadOnly
 
 def get_cart_and_items(request):
@@ -119,10 +119,19 @@ def homepage(request):
     return render(request, 'homepage.html', context)
 
 def login(request):
-    return render(request, 'login.html')
+    form = CreateUserForm()
+
+    context = {'form': form}
+    return render(request, 'login.html', context)
 
 def signup(request):
-    form = UserCreationForm()
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('homepage')
     
     context = {'form': form}
     return render(request, 'signup.html', context)
