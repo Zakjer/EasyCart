@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework import status
 
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import json
@@ -118,11 +120,18 @@ def homepage(request):
     context = {'products': five_products, 'items': items, 'cart': cart}
     return render(request, 'homepage.html', context)
 
-def login(request):
-    form = CreateUserForm()
+def login_page(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-    context = {'form': form}
-    return render(request, 'login.html', context)
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, username)
+            redirect('homepage')
+
+    return render(request, 'login.html')
 
 def signup(request):
     form = CreateUserForm()
@@ -131,7 +140,9 @@ def signup(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('homepage')
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+            return redirect('login')
     
     context = {'form': form}
     return render(request, 'signup.html', context)

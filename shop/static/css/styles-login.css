@@ -85,3 +85,11 @@ button:hover {
 p {
     margin-top: 1rem;
 }
+
+.message {
+    position: absolute;
+    top: 20%;
+    left: 39%;
+    font-weight: bold;
+    font-size: 1.5rem;
+}

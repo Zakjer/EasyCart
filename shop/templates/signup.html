@@ -32,6 +32,7 @@
         <div class="text-field">{{form.password1}}</div>
         <div class="text-field">{{form.password2}}</div>
         <button type="submit">Signup</button>
+        {{form.errors}}
         <p>Already have an account?</p>
         <a class="signup" href="{% url 'login' %}">Login</a>
       </form>

@@ -18,21 +18,21 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ['first_name', 'last_name', 'phone', 'birth_date']
+    list_display = ['phone', 'birth_date']
     search_fields = ['user']
     list_per_page = 20
 
 
 @admin.register(models.User)
 class UserAdmin(BaseUserAdmin):
-    ordering = ['username', 'first_name', 'last_name']
+    ordering = ['username']
     list_per_page = 20
     add_fieldsets = (
         (
             None,
             {
                 "classes": ("wide",),
-                "fields": ("username", "password1", "password2", "email", "first_name", "last_name"),
+                "fields": ("username", "password1", "password2", "email",),
             },
         ),
     )

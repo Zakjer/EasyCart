@@ -30,6 +30,9 @@
         <div class="text-field">{{form.username}}</div>
         <div class="text-field">{{form.password1}}</div>
         <button type="submit">Login</button>
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
         <p>Don't have an account?</p>
         <a class="signup" href="{% url 'signup' %}">Signup</a>
       </form>
