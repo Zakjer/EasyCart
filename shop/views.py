@@ -12,7 +12,7 @@ import json
 from decimal import Decimal
 
 from .serializers import CustomerSerializer, OrderSerializer, ProductSerializer, ReviewSerializer
-from .models import Customer, Order, Product, Review, OrderItem, Cart, CartItem
+from .models import Customer, Order, Product, Review, OrderItem, Cart, CartItem, User
 from .forms import CreateUserForm
 from .permissions import IsAdminOrReadOnly
 
@@ -121,6 +121,10 @@ def homepage(request):
     return render(request, 'homepage.html', context)
 
 def login_page(request):
+
+    customer = request.user.customer
+    cart, created = Cart.objects.get_or_create(customer=customer)
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -128,23 +132,27 @@ def login_page(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request, username)
-            redirect('homepage')
+            login(request, user)
+            return redirect('homepage')
 
-    return render(request, 'login.html')
+    context = {'cart': cart}
+    return render(request, 'login.html', context)
 
 def signup(request):
     form = CreateUserForm()
+    customer = request.user.customer
+    cart, created = Cart.objects.get_or_create(customer=customer)
 
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
+            user = form.save()
+            Customer.objects.create(user=user)
+            current_user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + current_user)
             return redirect('login')
     
-    context = {'form': form}
+    context = {'form': form, 'cart': cart}
     return render(request, 'signup.html', context)
 
 

@@ -11,8 +11,8 @@ class User(AbstractUser):
 
 
 class Customer(models.Model):
-    phone = models.CharField(max_length=255, null=True)
-    birth_date = models.DateField(null=True)
+    phone = models.CharField(max_length=255, null=True, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
 
