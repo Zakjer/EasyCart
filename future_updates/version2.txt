@@ -1,0 +1,1 @@
+Files in this folder are prepared to expand and optimize the application in the future. They are not used in the current version of the EasyCart.
