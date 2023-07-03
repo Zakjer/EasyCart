@@ -6,6 +6,7 @@ from rest_framework import status
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import json
@@ -64,7 +65,6 @@ def get_cart_and_items(request):
 
     return items, cart
 
-
 def products(request):
     products = Product.objects.all()
     
@@ -82,12 +82,9 @@ def cart(request):
     return render(request, 'cart.html', context)
 
 def update_cart(request):
-    print(request.body)
     data = json.loads(request.body)
     productId = data['productId']
     action = data['action']
-    print('Action:', action)
-    print('Product:', productId)
 
     customer = request.user.customer
     product = Product.objects.get(id=productId)
@@ -122,38 +119,56 @@ def homepage(request):
 
 def login_page(request):
 
-    customer = request.user.customer
-    cart, created = Cart.objects.get_or_create(customer=customer)
+    items, cart = get_cart_and_items(request)
 
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+    if request.user.is_authenticated:
+        return redirect('profile')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username') 
+            password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('homepage')
+            if user is not None:
+                login(request, user)
+                return redirect('profile')
+            else:
+                messages.info(request, 'Username or password is incorrect')
 
     context = {'cart': cart}
     return render(request, 'login.html', context)
 
+def logout_user(request):
+    logout(request)
+    messages.success(request, 'You have successfully logged out')
+    return redirect('login')
+
 def signup(request):
     form = CreateUserForm()
-    customer = request.user.customer
-    cart, created = Cart.objects.get_or_create(customer=customer)
+    items, cart = get_cart_and_items(request)
 
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            Customer.objects.create(user=user)
-            current_user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + current_user)
-            return redirect('login')
+    if request.user.is_authenticated:
+        return redirect('profile')
+    else:
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                Customer.objects.create(user=user)
+                current_user = form.cleaned_data.get('username')
+                messages.success(request, 'Account was created for ' + current_user)
+                return redirect('login')
     
     context = {'form': form, 'cart': cart}
     return render(request, 'signup.html', context)
+
+@login_required(login_url='login')
+def profile(request):
+    items, cart = get_cart_and_items(request)
+
+    context = {'cart': cart}
+    return render(request, 'profile.html', context)
 
 
 # class ProductViewSet(ModelViewSet):
