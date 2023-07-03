@@ -73,9 +73,9 @@
     <section class="recommendations" data-aos="fade-up">
       {% for product in products %}
       <div class="product" id="product1">
-        <img src="{{ product.image.url }}" alt="Photo of watch" />
-        <p>{{ product.title }}</p>
-        <p class="price">{{ product.price }}$</p>
+        <img src="{{ product.image.url }}" alt="Photo of product" />
+        <p>{{product.title}}</p>
+        <p class="price">{{product.price}}$</p>
         <div class="review">
           <i>Reviews</i>
           <i class="fa fa-star"></i>

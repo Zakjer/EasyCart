@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Customer, Order, Product, OrderItem, Review, CartItem, Cart
+from ..shop.models import Customer, Order, Product, OrderItem, Review, CartItem, Cart
 
 # class ProductImageSerializer(serializers.ModelSerializer):
 #     def create(self, validated_data):
