@@ -21,7 +21,7 @@ def get_cart_and_items(request):
         try:
             order = json.loads(request.COOKIES['cart'])
         except KeyError:
-            order = {}
+            order = {} 
         
         items = []
         cart = {'total_without_tax': 0, 'tax': 0, 'total_with_tax': 0, 'total_quantity': 0}
