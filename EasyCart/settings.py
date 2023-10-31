@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'x3mql_2a_r@zdl9^cy^uhp9n0btye1oi@rzk0!n+r+(rze^o9g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,12 +86,12 @@ WSGI_APPLICATION = 'EasyCart.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', cast=int)
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'DAC-6afcd*-6-f1cg-aaFb36BgGg32d4',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '39387'
     }
 }
 
@@ -132,11 +132,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'shop/static/images')
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -154,12 +157,5 @@ REST_FRAMEWORK = {
 
 AUTH_USER_MODEL = "shop.User" 
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-
-SECURE_HSTS_SECONDS = 61536000
-SECURE_HSTS_PRELOAD = True
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 
