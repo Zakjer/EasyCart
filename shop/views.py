@@ -3,13 +3,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 import json
 from decimal import Decimal
 
 from .models import Customer, Product, Cart, CartItem
 from .forms import CreateUserForm
-
 
 def get_cart_and_items(request):
     if request.user.is_authenticated:
@@ -111,6 +111,7 @@ def homepage(request):
     context = {'products': five_products, 'items': items, 'cart': cart}
     return render(request, 'homepage.html', context)
 
+@csrf_exempt
 def login_page(request):
 
     items, cart = get_cart_and_items(request)
@@ -133,11 +134,13 @@ def login_page(request):
     context = {'cart': cart}
     return render(request, 'login.html', context)
 
+@csrf_exempt
 def logout_user(request):
     logout(request)
     messages.success(request, 'You have successfully logged out')
     return redirect('login')
 
+@csrf_exempt
 def signup(request):
     form = CreateUserForm()
     items, cart = get_cart_and_items(request)
@@ -157,6 +160,7 @@ def signup(request):
     context = {'form': form, 'cart': cart}
     return render(request, 'signup.html', context)
 
+@csrf_exempt
 @login_required(login_url='login')
 def profile(request):
     items, cart = get_cart_and_items(request)
