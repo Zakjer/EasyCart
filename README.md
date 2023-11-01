@@ -1,6 +1,6 @@
 # Website address
 
-### easy-cart.up.railway.app
+### https://easy-cart.up.railway.app
 
 # EasyCart
 
