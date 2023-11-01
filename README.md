@@ -8,10 +8,10 @@ EasyCart is a website with a working cart and registration system. The website w
 
 # Folders
 
-**EasyCart:** Contains all application settings
-**shop:** Contains the main part of the program such as the database structure, frontend code, URL's and much more
-**future_updates:** Contains files with which the application will be improved in the future, e.g. tests written in pytest, performance tests using locust and files from the Django REST framework
-**static** and **staticfiles:** These are folders necessary to deploy the application via an external platform
+**EasyCart**: Contains all application settings.
+**shop**: Contains the main part of the program such as the database structure, frontend code, URL's and much more.
+**future_updates**: Contains files with which the application will be improved in the future, e.g. tests written in pytest, performance tests using locust and files from the Django REST framework.
+**static** and **staticfiles**: These are folders necessary to deploy the application via an external platform.
 
 # Requirements
 
