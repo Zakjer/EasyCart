@@ -4,7 +4,7 @@
 
 # EasyCart
 
-EasyCart is a website with a working cart and registration system. The website was created using: Python, Django, HTML, CSS, SQL
+EasyCart is a website with a working cart and registration system. The website was created using: Python, Django, HTML, CSS, SQL.
 
 # Folders
 
@@ -18,8 +18,8 @@ EasyCart is a website with a working cart and registration system. The website w
 
 # Requirements
 
-Libraries and programs used to create the website are located in the requirements.txt file
+Libraries and programs used to create the website are located in the requirements.txt file.
 
 # Version
 
-The current version of the website is for to computers and laptops. Support for phone and tablet screens will be added in the future
+The current version of the website is for computers and laptops. Support for phone and tablet screens will be added in the future.
