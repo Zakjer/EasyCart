@@ -26,6 +26,7 @@ urlpatterns = [
     path('__debug__/', include(debug_toolbar.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('shop/', include('shop.urls')),
+    path('', include('shop.urls')),
 ]
 
 if settings.DEBUG:
